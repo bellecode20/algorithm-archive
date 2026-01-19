@@ -18,7 +18,6 @@ graph (NxN)
 '''
 dr = [0, 1, 0, -1]   # 좌하우상
 dc = [-1, 0, 1, 0]
-
 base = [
     (-1, 1, 1), (1, 1, 1),
     (-1, 0, 7), (1, 0, 7),
@@ -27,14 +26,16 @@ base = [
     (0, -2, 5),
 ]
 
+
 def rotate(y, x, d):
     if d == 0:
         return y, x
     if d == 1:
-        return x, -y
+        return -x, y
     if d == 2:
         return -y, -x
-    return -x, y
+    return x, -y
+
 
 def spread(r, c, d):
     global out_sand
