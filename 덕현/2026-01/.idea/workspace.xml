@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38370c2b-d7bf-48bb-82c0-cbd468eddd0e" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/16_boj_마법사상어와토네이도.py" beforeDir="false" afterPath="$PROJECT_DIR$/16_boj_마법사상어와토네이도.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20_boj_드래곤커브.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +30,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.16_boj_마법사상어와토네이도.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Duck/Desktop/bellcode study/algorithm-archive/덕현/2026-01&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.16_boj_마법사상어와토네이도.executor": "Run",
+    "Python.19_boj_미세먼지안녕.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Duck/Desktop/bellcode study/algorithm-archive/덕현/2026-01"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.19_boj_미세먼지안녕">
     <configuration name="16_boj_마법사상어와토네이도" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="2026-01" />
