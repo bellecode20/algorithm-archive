@@ -1,5 +1,12 @@
 # 택배 배송 https://www.acmicpc.net/problem/5972
 
+# 입력 텍스트 파일 실행 코드
+import sys
+from pathlib import Path
+BASE_DIR = Path(__file__).parent
+sys.stdin = open(BASE_DIR / "input.txt", "r")
+input = sys.stdin.readline
+
 from collections import defaultdict
 import heapq
 
@@ -19,12 +26,11 @@ dist[1] = 0
 heapq.heapify(hq)
 while hq:
     node, d = heapq.heappop(hq)
-    if node == N:
-        answer = min(answer, d)
+
     for next_i, cost in graph[node]:
         next_cost = cost + d
         if dist[next_i] > next_cost:
             dist[next_i] = next_cost
             heapq.heappush(hq, (next_i, next_cost))
 
-print(answer)
+print(dist[N])
