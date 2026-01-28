@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ab0f35-ebe5-4a3b-9875-9dbfea7a9947" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/29_boj_뱀과사다리게임.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/30_boj_고층건물.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
