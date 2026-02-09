@@ -43,12 +43,26 @@ for x,y in product(range(N-2),range(1,N-1)):
         find_five() #경계선 안쪽 5번구역찾기
         cnt_five()  #5번구역 인구수 세기
         
-        for r in range(N):
-            for c in range(N):
-                if not five[r][c]:  #5번 구역 제외
-                    if 0<=r<x+d1 and 0<=c<=y:people_cnt[1]+=people[r][c]    #1번구역
-                    elif 0<=r<=x+d2 and y<c<N:people_cnt[2]+=people[r][c]   #2번구역
-                    elif x+d1<=r<N and 0<=c<y-d1+d2:people_cnt[3]+=people[r][c] #3번구역
-                    elif x+d2<r<N and y-d1+d2<=c<N:people_cnt[4]+=people[r][c]  #4번구역
+        for r in range(x + d1):
+            for c in range(y + 1):
+                if five[r][c]: break
+                people_cnt[1] += people[r][c]
+
+        for r in range(x + d2 + 1):
+            for c in range(N - 1, y, -1):
+                if five[r][c]: break
+                people_cnt[2] += people[r][c]
+
+        for r in range(x + d1, N):
+            for c in range(y - d1 + d2):
+                if five[r][c]: break
+                people_cnt[3] += people[r][c]
+
+        for r in range(x + d2 + 1, N):
+            for c in range(N - 1, y - d1 + d2 - 1, -1):
+                if five[r][c]: break
+                people_cnt[4] += people[r][c]
+
+
         min_result=min(min_result,max(people_cnt[1:])-min(people_cnt[1:]))  #최소결과값 찾기
 print(min_result)
