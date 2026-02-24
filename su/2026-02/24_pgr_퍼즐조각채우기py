@@ -1,17 +1,16 @@
-# 수정 중인 코드입니다
+# https://school.programmers.co.kr/learn/courses/30/lessons/84021
 
 from collections import defaultdict, deque
 
 N = 0
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
-answer = -1
+answer = 0
 
 def bfs(sr, sc, visited, graph, target):
     group = []
     visited[(sr, sc)] = True
     queue = deque([(sr, sc)])
-    group.append([sr, sc])
     
     while queue:
         r, c = queue.popleft()
@@ -27,13 +26,15 @@ def bfs(sr, sc, visited, graph, target):
             
     return group
 
-def normalize(li):
-    min_row = min(piece[0] for piece in li)
-    min_col = min(piece[1] for piece in li)
-    # print(li)
-    # sorted_pieces = sorted([p[0] - min_row, p[1] - min_col] for p in li)
+
+def normalize(piece):
+    min_row = min(p[0] for p in piece)
+    min_col = min(p[1] for p in piece)
     
-    # return sorted_pieces
+    sorted_pieces = sorted((p[0] - min_row, p[1] - min_col) for p in piece)
+    
+    return sorted_pieces
+    
 
 def find_piece(target, graph):
     global N
@@ -44,17 +45,18 @@ def find_piece(target, graph):
     # 모든 칸을 리스트에 넣기
     for r in range(N):
         for c in range(N):
-            if graph[r][c] == target:
-                piece = bfs(r, c, visited, graph, target)
-                li.append(piece)
-    
-    # 2. 좌표 정규화
-    print(li)
-    blanks = normalize(li)
-    puzzles = normalize(li)
-    
+            if graph[r][c] == target and not visited[(r, c)]:
+                piece = bfs(r, c, visited, graph, target)  # 해당 시작점과 연결된 모든 조각들을 리스트로 리턴
+                li.append(normalize(piece))
+
     return li
 
+
+def rotate(puzzle):
+    li = []
+    for row, col in puzzle:
+        li.append([col, N - 1 - row])
+    return normalize(li)
 
 
 def solution(game_board, table):
@@ -65,8 +67,32 @@ def solution(game_board, table):
     blanks = find_piece(0, game_board)
     puzzles = find_piece(1, table)
 
+    used = [0] * len(puzzles)
     
-    # 3. 회전 및 비교
-    
+
+    # 2. 회전 및 비교
+    for blank in blanks:
+        found = False
+        
+        # 빈칸마다 퍼즐 확인하기
+        for i, puzzle in enumerate(puzzles):
+            if found:
+                break
+            if used[i] or len(puzzle) != len(blank):
+                continue
+            
+            # 회전시키기
+            cur_puzzle = puzzle
+
+            for _ in range(4):
+                # 90도 회전
+                if cur_puzzle == blank:
+                    found = True
+                    answer += len(cur_puzzle)
+                    used[i] = 1
+                    break
+                    
+                cur_puzzle = rotate(cur_puzzle)
+                
     
     return answer
