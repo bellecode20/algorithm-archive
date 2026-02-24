@@ -28,6 +28,7 @@ def solution(begin, target, words):
     n = len(words)
     visited = [False] * n
 
+
     q = [(begin, 0)]
     head = 0
 
