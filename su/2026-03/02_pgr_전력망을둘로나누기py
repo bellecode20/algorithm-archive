@@ -1,0 +1,41 @@
+answer = int(1e9)
+graph = []
+parent = []
+
+def find(i):  # 부모 찾기 (경로 압축 포함)
+    if parent[i] == i:
+        return i
+    parent[i] = find(parent[i])
+    return parent[i]
+
+def union(i, j):
+    root_i = find(i)
+    root_j = find(j)
+    if root_i != root_j:
+        parent[root_i] = root_j
+
+
+
+def solution(n, wires):
+    global parent
+    answer = n
+
+    for i in range(len(wires)):
+        parent = [j for j in range(n+1)]
+
+        # i번째 전선만 빼고 나머지 다 연결하기
+        for j in range(len(wires)):
+            if i == j: continue
+            v1, v2 = wires[j]
+            union(v1, v2)  # 
+
+        
+        root = find(1)  # 아무노드부터 루트 노드 찾기
+        cnt = 0
+        for k in range(1, n+1):
+            if find(k) == root:
+                cnt += 1
+
+        answer = min(answer, abs(cnt - (n - cnt)))
+
+    return answer
