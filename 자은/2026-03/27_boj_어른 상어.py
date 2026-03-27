@@ -42,7 +42,7 @@ for i in range(N):
             smell_memo[i][j][1]=K+1
 
 time=0
-while time<1001:
+while time<1000:
     time+=1
     #냄새 시간 감소
     for i in range(N):
