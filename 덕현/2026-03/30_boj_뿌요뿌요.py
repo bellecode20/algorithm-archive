@@ -1,4 +1,4 @@
-'''
+`'''
 BOJ 11559 뿌요뿌요
 
 입력:
@@ -88,4 +88,4 @@ while True:
     down()
     ans += 1
 
-print(ans)
+print(ans)`
