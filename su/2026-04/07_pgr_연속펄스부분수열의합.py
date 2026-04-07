@@ -12,9 +12,8 @@ def solution(sequence):
             answer = max(max(dp[0]), answer)
             continue
             
-        for j in range(2):
-            dp[i][0] = max(sequence[i], dp[i-1][1] + sequence[i])  # 부분수열 새로 시작하기 vs 기존 부분수열에 i번째 수 더하기
-            dp[i][1] = max(reversed_seq[i], dp[i-1][0] + reversed_seq[i])
-            answer = max(max(dp[i]), answer)
+        dp[i][0] = max(sequence[i], dp[i-1][1] + sequence[i])  # 부분수열 새로 시작하기 vs 기존 부분수열에 i번째 수 더하기
+        dp[i][1] = max(reversed_seq[i], dp[i-1][0] + reversed_seq[i])
+        answer = max(max(dp[i]), answer)
             
     return answer
