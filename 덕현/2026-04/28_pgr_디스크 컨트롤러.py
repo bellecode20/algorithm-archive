@@ -39,4 +39,5 @@ def solution(jobs):
         else:
             time = jobs[idx][0]
 
+
     return total // n
