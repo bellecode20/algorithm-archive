@@ -7,7 +7,7 @@ number
 
 구조:
 DP라고 N 1~8쓴 경우 바로바로 만들어서 하기
-set
+set .
 '''
 
 def solution(N, number):
