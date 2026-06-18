@@ -1,0 +1,19 @@
+-- 방법1
+SELECT NAME, COUNT(*)
+FROM ANIMAL_INS
+WHERE NAME IS NOT NULL -- 이름이 없는 행은 처음부터 제외
+GROUP BY NAME
+HAVING COUNT(*) >= 2
+ORDER BY NAME;
+
+-- 방법2
+SELECT NAME, COUNT(NAME)
+FROM ANIMAL_INS
+GROUP BY NAME
+HAVING COUNT(NAME) >= 2
+ORDER BY NAME;
+
+-- 주의
+HAVING COUNT(*) >= 2
+이렇게 쓸 경우 NULL도 포함해서 세기 때문에 틀림
+컬럼명을 넣어야 NULL 빼고 셈
