@@ -26,7 +26,7 @@ def solution(order):
 
 
             else:
-                break
+                breaka
 
             if answer == len(order):
                 break
